@@ -107,7 +107,6 @@ const EXAMPLES = [
 
 // ── State ─────────────────────────────────────────────────────────────────────
 let currentIndex = 0;
-let debounceTimer = null;
 let currentView = 'preview';
 
 // ── DOM refs ──────────────────────────────────────────────────────────────────
@@ -117,6 +116,7 @@ const previewFrame  = document.getElementById('preview-frame');
 const htmlOutput    = document.getElementById('html-output');
 const errorMsg      = document.getElementById('error-msg');
 const tabsContainer = document.getElementById('example-tabs');
+const btnRun        = document.getElementById('run-btn');
 const btnPreview    = document.getElementById('view-preview');
 const btnHtml       = document.getElementById('view-html');
 const copyInstall   = document.getElementById('copy-install');
@@ -195,11 +195,6 @@ function hideError() {
   errorMsg.classList.add('hidden');
 }
 
-function debounceRender() {
-  clearTimeout(debounceTimer);
-  debounceTimer = setTimeout(renderCode, 350);
-}
-
 // ── Tabs ──────────────────────────────────────────────────────────────────────
 function renderTabs() {
   tabsContainer.innerHTML = '';
@@ -221,7 +216,8 @@ function selectExample(index) {
   codeArea.value = ex.code;
   ctxArea.value = JSON.stringify(ex.ctx, null, 2);
   renderTabs();
-  renderCode();
+  hideError();
+  updatePreview('');
 }
 
 // ── View toggle ───────────────────────────────────────────────────────────────
@@ -244,6 +240,16 @@ btnHtml.addEventListener('click', () => {
   btnPreview.className = INACTIVE_BTN;
 });
 
+// ── Run button ────────────────────────────────────────────────────────────────
+btnRun.addEventListener('click', () => {
+  btnRun.textContent = '⏳ Executando…';
+  btnRun.disabled = true;
+  renderCode().finally(() => {
+    btnRun.textContent = '▶ Executar';
+    btnRun.disabled = false;
+  });
+});
+
 // ── Tab key support ───────────────────────────────────────────────────────────
 codeArea.addEventListener('keydown', (e) => {
   if (e.key !== 'Tab') return;
@@ -252,12 +258,7 @@ codeArea.addEventListener('keydown', (e) => {
   const end = codeArea.selectionEnd;
   codeArea.value = codeArea.value.substring(0, s) + '    ' + codeArea.value.substring(end);
   codeArea.selectionStart = codeArea.selectionEnd = s + 4;
-  debounceRender();
 });
-
-// ── Live input ────────────────────────────────────────────────────────────────
-codeArea.addEventListener('input', debounceRender);
-ctxArea.addEventListener('input', debounceRender);
 
 // ── Copy pip install ──────────────────────────────────────────────────────────
 if (copyInstall) {
@@ -271,4 +272,6 @@ if (copyInstall) {
 
 // ── Init ──────────────────────────────────────────────────────────────────────
 renderTabs();
-selectExample(0);
+const first = EXAMPLES[0];
+codeArea.value = first.code;
+ctxArea.value = JSON.stringify(first.ctx, null, 2);

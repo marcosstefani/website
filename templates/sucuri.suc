@@ -50,8 +50,8 @@ block content
     section(class="max-w-6xl mx-auto px-6 py-20")
         div(class="mb-10")
             span(class="text-violet-400 font-display text-sm font-semibold tracking-widest uppercase") Playground
-            h2(class="mt-2 text-3xl font-bold text-white font-display") Experimente em tempo real
-            p(class="mt-3 text-zinc-400 max-w-2xl") Edite o template Sucuri e o contexto Python. O resultado renderiza automaticamente à direita — sem precisar salvar nada.
+            h2(class="mt-2 text-3xl font-bold text-white font-display") Experimente
+            p(class="mt-3 text-zinc-400 max-w-2xl") Edite o template Sucuri e o contexto Python. Clique em Executar para renderizar o resultado.
         div(id="example-tabs" class="flex gap-2 flex-wrap mb-6")
         div(class="border border-zinc-800 rounded-2xl overflow-hidden")
             div(class="grid lg:grid-cols-2" style="min-height:520px;")
@@ -66,6 +66,8 @@ block content
                         div(class="px-4 py-2 bg-zinc-900/50 border-b border-zinc-800")
                             span(class="text-zinc-500 text-xs font-mono") context.json
                         textarea(id="suc-context" spellcheck="false" class="w-full bg-zinc-950 text-emerald-400 font-mono text-xs px-5 py-3 resize-none focus:outline-none" style="height:120px;")
+                    div(class="flex items-center justify-end px-4 py-3 bg-zinc-900/50 border-t border-zinc-800 flex-shrink-0")
+                        button(id="run-btn" class="flex items-center gap-2 px-5 py-2 bg-violet-600 hover:bg-violet-500 text-white text-sm font-semibold rounded-xl transition-colors") ▶ Executar
                 div(class="flex flex-col bg-zinc-950")
                     div(class="flex items-center justify-between px-4 py-3 bg-zinc-900/80 border-b border-zinc-800 flex-shrink-0")
                         span(class="text-zinc-500 text-xs font-mono") preview
