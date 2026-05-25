@@ -12,6 +12,11 @@ state = app.state({
 })
 
 
+@app.get("/healthz")
+def healthz():
+    return {"status": "ok"}
+
+
 @app.get("/")
 def index():
     return app.render("index.suc", state.data)
