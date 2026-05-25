@@ -1,4 +1,4 @@
-# marcosstefani.github.io — v2
+# Marcos Stefani Rosa
 
 Site pessoal de Marcos Stefani Rosa, reescrito com [Sucuri](https://github.com/marcosstefani/sucuri) — a template engine para Python que eu mesmo criei. Esta versão abandona o modelo estático e passa a rodar com servidor live, hot reload e um playground interativo para demonstrar as capacidades do Sucuri.
 
