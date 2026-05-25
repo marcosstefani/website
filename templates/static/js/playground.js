@@ -163,21 +163,33 @@ async function renderCode() {
     showError('JSON inválido no contexto.');
     return;
   }
-  try {
-    const res = await fetch('/api/render', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ code, context: ctx })
-    });
-    const data = await res.json();
-    if (data.error) {
-      showError(data.error);
-    } else {
-      hideError();
-      updatePreview(data.html);
+
+  const MAX_RETRIES = 5;
+  const RETRY_DELAY = 1000; // ms
+
+  for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+    try {
+      const res = await fetch('/api/render', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ code, context: ctx })
+      });
+      const data = await res.json();
+      if (data.error) {
+        showError(data.error);
+      } else {
+        hideError();
+        updatePreview(data.html);
+      }
+      return;
+    } catch {
+      if (attempt < MAX_RETRIES) {
+        showError(`Servidor indisponível — tentativa ${attempt}/${MAX_RETRIES}…`);
+        await new Promise(r => setTimeout(r, RETRY_DELAY * attempt));
+      } else {
+        showError('Servidor indisponível após 5 tentativas. Tente novamente mais tarde.');
+      }
     }
-  } catch {
-    showError('Erro ao conectar ao servidor.');
   }
 }
 
