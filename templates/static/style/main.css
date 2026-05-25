@@ -1,0 +1,161 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+}
+
+.font-display {
+    font-family: 'Syne', ui-sans-serif, system-ui, sans-serif;
+}
+
+.navbar {
+    padding: 30px;
+}
+
+.container .columns {
+    margin-bottom: 17px;
+}
+
+.col-70-centered, .container {
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+.panel-p0 .column {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.panel-body .text-primary {
+    margin: 0;
+    font-weight: 600;
+}
+
+ul, ul li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+a, u, a:hover, u:hover {
+    text-decoration: none;
+}
+
+.contacts i {
+    color: white;
+}
+
+.first-section {
+    background: url("background.png") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.panel {
+    padding-bottom: 40px;
+    padding-top: 40px;
+    min-height: 736px;
+}
+
+.panel figure {
+    margin-bottom: 20px;
+}
+
+.figure.emerge-caption {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.figure.emerge-caption:hover img {
+    opacity: 0;
+}
+
+.figure.emerge-caption figcaption.figure-caption {
+    width: 100%;
+    height: 100%;
+    -webkit-transition: .45s ease-in-out;
+    transition: .55s ease-in-out;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.figure-card {
+    height: 280px;
+}
+
+.figure {
+    height: 100%;
+}
+
+.figure img {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .25s ease-in-out;
+    transition: .45s ease-in-out;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: block;
+    width: 100%;
+}
+
+.contabilizei {
+    background-color: #002768;
+}
+
+.contabilizei figcaption.figure-caption {
+    padding: 13% 10%;
+    color: white;
+}
+
+.m4u {
+    border: 1px solid #002768;
+}
+
+.m4u figcaption.figure-caption {
+    padding: 15% 10%;
+    color: #002768;
+}
+
+.wine {
+    border: 10px solid black;
+}
+
+.wine figcaption.figure-caption {
+    padding: 20% 10%;
+    color: black;
+}
+
+.autoglass {
+    border: 10px solid #002768;
+}
+
+.autoglass figcaption.figure-caption {
+    padding: 20% 10%;
+    color: #002768;
+}
+
+.totvs {
+    border: 1px solid #0199BE;
+}
+
+.totvs figcaption.figure-caption {
+    padding: 20% 10%;
+    color: #0199BE;
+}
+
+.datasul {
+    border: 1px solid #94313A;
+}
+
+.datasul figcaption.figure-caption {
+    padding: 20% 10%;
+    color: #94313A;
+}

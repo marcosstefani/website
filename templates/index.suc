@@ -1,0 +1,106 @@
+extends layout
+
+block seo
+    meta(name="description" content="Marcos Stefani Rosa — Desenvolvedor Full Stack, Tenor Lírico, Compositor e Poeta. Porto, Portugal.")
+    meta(property="og:title" content="Marcos Stefani Rosa")
+    meta(property="og:description" content="Desenvolvedor Full Stack, Tenor Lírico, Compositor e Poeta.")
+
+block content
+    section(class="max-w-5xl mx-auto px-6 py-28 flex flex-col md:flex-row items-center gap-16")
+        img(src="/static/images/avatar.jpeg" alt="Marcos Stefani Rosa" class="w-44 h-44 rounded-full object-cover shadow-2xl ring-2 ring-violet-500/40 flex-shrink-0")
+        div
+            h1(class="text-5xl font-bold text-white leading-tight font-display") Marcos Stefani Rosa
+            p(class="mt-3 text-violet-400 font-semibold tracking-widest text-xs uppercase") Desenvolvedor · Cantor · Compositor · Poeta
+            p(class="mt-5 text-zinc-400 text-lg leading-relaxed max-w-xl") Código, voz, nota e verso — tudo nasce do mesmo lugar. Sou desenvolvedor, cantor, compositor e poeta. Capixaba, cidadão do mundo, vivendo atualmente em Portugal.
+    section(id="dev" class="bg-zinc-900/30 py-24 border-t border-zinc-800/50")
+        div(class="max-w-5xl mx-auto px-6")
+            div(class="flex items-center gap-3 mb-10")
+                span(class="text-violet-400 font-display text-sm font-semibold tracking-widest uppercase") 01
+                h2(class="text-3xl font-bold text-white font-display") Dev
+            div(class="grid md:grid-cols-2 gap-12 items-start")
+                div
+                    p(class="text-zinc-400 leading-relaxed") Com mais de 20 anos de experiência, sou pós-graduado em Engenharia de Software com Métodos Ágeis. Forte background em Java, Python e Kotlin, trabalhando com arquiteturas modernas — microsserviços, hexagonal, cloud-native. Atualmente na Mindera, em Porto.
+                    div(class="mt-6 flex flex-wrap gap-2")
+                        span(class="px-3 py-1 bg-zinc-800 text-zinc-300 text-xs font-medium rounded-full") Python
+                        span(class="px-3 py-1 bg-zinc-800 text-zinc-300 text-xs font-medium rounded-full") Java
+                        span(class="px-3 py-1 bg-zinc-800 text-zinc-300 text-xs font-medium rounded-full") Kotlin
+                        span(class="px-3 py-1 bg-zinc-800 text-zinc-300 text-xs font-medium rounded-full") JavaScript
+                        span(class="px-3 py-1 bg-zinc-800 text-zinc-300 text-xs font-medium rounded-full") Spring Boot
+                        span(class="px-3 py-1 bg-zinc-800 text-zinc-300 text-xs font-medium rounded-full") Flask
+                        span(class="px-3 py-1 bg-zinc-800 text-zinc-300 text-xs font-medium rounded-full") Terraform
+                        span(class="px-3 py-1 bg-zinc-800 text-zinc-300 text-xs font-medium rounded-full") Docker
+                        span(class="px-3 py-1 bg-zinc-800 text-zinc-300 text-xs font-medium rounded-full") Kubernetes
+                    div(class="mt-8 flex flex-wrap gap-3")
+                        a(href="https://www.linkedin.com/in/marcosstefani" target="_blank" rel="noopener" class="px-5 py-2.5 bg-violet-600 text-white text-sm font-semibold rounded-xl hover:bg-violet-500 transition-colors") LinkedIn
+                        a(href="https://github.com/marcosstefani" target="_blank" rel="noopener" class="px-5 py-2.5 border border-zinc-700 text-zinc-300 text-sm font-semibold rounded-xl hover:border-zinc-500 hover:text-white transition-colors") GitHub
+                        a(href="https://medium.com/@marcosstefani" target="_blank" rel="noopener" class="px-5 py-2.5 border border-zinc-700 text-zinc-300 text-sm font-semibold rounded-xl hover:border-zinc-500 hover:text-white transition-colors") Medium
+                div(class="flex flex-col gap-4")
+                    a(href="/sucuri" class="block bg-zinc-900 border border-violet-500/40 rounded-2xl p-6 hover:border-violet-400/60 transition-colors")
+                        div(class="flex items-center justify-between")
+                            h3(class="text-lg font-bold text-white font-display") sucuri
+                            span(class="text-violet-400 text-xs font-semibold") ★ 27
+                        p(class="mt-1 text-violet-400 text-xs font-medium") Esta página foi feita com Sucuri
+                        p(class="mt-3 text-zinc-400 text-sm leading-relaxed") Template engine para Python inspirado no PugJS. Sintaxe elegante baseada em indentação, sem dependência de frameworks.
+                    a(href="https://github.com/ElaraDevSolutions/sqla-lite" target="_blank" rel="noopener" class="block bg-zinc-900 border border-zinc-800 rounded-2xl p-6 hover:border-zinc-600 transition-colors")
+                        div(class="flex items-center justify-between")
+                            h3(class="text-lg font-bold text-white font-display") sqla-lite
+                            span(class="text-zinc-500 text-xs font-semibold") PyPI
+                        p(class="mt-3 text-zinc-400 text-sm leading-relaxed") Camada declarativa leve sobre o SQLAlchemy que elimina boilerplate e mantém os modelos limpos.
+                    a(href="https://github.com/ElaraDevSolutions/gittool" target="_blank" rel="noopener" class="block bg-zinc-900 border border-zinc-800 rounded-2xl p-6 hover:border-zinc-600 transition-colors")
+                        div(class="flex items-center justify-between")
+                            h3(class="text-lg font-bold text-white font-display") gittool
+                            span(class="text-zinc-500 text-xs font-semibold") ★ 1
+                        p(class="mt-3 text-zinc-400 text-sm leading-relaxed") CLI leve que estende o Git com fluxos mais inteligentes, gestão de chaves SSH e suporte a múltiplas contas.
+    section(id="musica" class="py-24 border-t border-zinc-800/50")
+        div(class="max-w-5xl mx-auto px-6")
+            div(class="flex items-center gap-3 mb-10")
+                span(class="text-violet-400 font-display text-sm font-semibold tracking-widest uppercase") 02
+                h2(class="text-3xl font-bold text-white font-display") Música
+            div(class="grid md:grid-cols-2 gap-12 items-start")
+                div
+                    h3(class="text-xl font-bold text-zinc-100 font-display mb-4") Cantor Lírico
+                    p(class="text-zinc-400 leading-relaxed") Cantor desde os 7 anos, tenor por vocação. Passei pelo Coral Maria Penedo, fui um dos fundadores do grupo de ópera Opera Prima e um dos precursores da ópera no cenário capixaba. Como solista, atuei em obras como os Requiems de Mozart e Verdi, o Messias de Handel, a Carmina Burana de Orff e o Magnificat de Bach. Na ópera: O Guarani, Il Combattimento, Madame Butterfly, O Barbeiro de Sevilha, Rigoletto e Così fan tutte.
+                    p(class="mt-4 text-zinc-400 leading-relaxed") Em Porto, integro o Coro da Casa da Música e o Coro Polifónico da Lapa.
+                    div(class="mt-6 flex flex-wrap gap-3")
+                        a(href="https://www.coropolifonicodalapa.pt" target="_blank" rel="noopener" class="px-4 py-2 border border-zinc-700 text-zinc-300 text-sm font-medium rounded-xl hover:border-zinc-500 hover:text-white transition-colors") Coro Polifónico da Lapa
+                        a(href="https://www.youtube.com/@marcosstefani/videos" target="_blank" rel="noopener" class="px-4 py-2 border border-zinc-700 text-zinc-300 text-sm font-medium rounded-xl hover:border-zinc-500 hover:text-white transition-colors") YouTube ↗
+                        a(href="https://www.instagram.com/marcos_cantor" target="_blank" rel="noopener" class="px-4 py-2 border border-zinc-700 text-zinc-300 text-sm font-medium rounded-xl hover:border-zinc-500 hover:text-white transition-colors") Instagram
+                        a(href="https://www.facebook.com/marcos.cantor" target="_blank" rel="noopener" class="px-4 py-2 border border-zinc-700 text-zinc-300 text-sm font-medium rounded-xl hover:border-zinc-500 hover:text-white transition-colors") Facebook
+                div
+                    h3(class="text-xl font-bold text-zinc-100 font-display mb-4") Compositor
+                    p(class="text-zinc-400 leading-relaxed") A música também nasce das minhas mãos. Composições originais — da melodia à partitura — partilhadas no MuseScore.
+                    div(class="mt-6")
+                        a(href="https://musescore.com/user/12984861" target="_blank" rel="noopener" class="inline-block px-5 py-2.5 bg-violet-600 text-white text-sm font-semibold rounded-xl hover:bg-violet-500 transition-colors") Ver partituras no MuseScore
+    section(id="poesia" class="bg-zinc-900/30 py-24 border-t border-zinc-800/50")
+        div(class="max-w-5xl mx-auto px-6")
+            div(class="flex items-center gap-3 mb-10")
+                span(class="text-violet-400 font-display text-sm font-semibold tracking-widest uppercase") 03
+                h2(class="text-3xl font-bold text-white font-display") Poesia
+            div(class="grid md:grid-cols-2 gap-12 items-center")
+                div
+                    h3(class="text-2xl font-bold text-white font-display leading-snug") Intimidades Poéticas
+                    p(class="mt-1 text-zinc-500 text-sm") eBook Kindle · Amazon · Fevereiro 2025 · 45 páginas
+                    p(class="mt-5 text-zinc-400 leading-relaxed") Uma jornada sensível de autodescoberta, saudade e pertencimento. Como imigrante em Portugal, revisito as minhas raízes capixabas e transformo em versos a essência do Espírito Santo e das pessoas que marcaram a minha vida.
+                    p(class="mt-4 text-zinc-400 leading-relaxed") Cada poema nasce primeiro, puro e intenso — seguido por uma reflexão sobre as memórias que o inspiraram. Sentir antes de compreender.
+                    div(class="mt-8")
+                        a(href="https://www.amazon.com.br/dp/B0DXQKCZST" target="_blank" rel="noopener" class="inline-block px-6 py-3 bg-violet-600 text-white text-sm font-semibold rounded-xl hover:bg-violet-500 transition-colors") Ler na Amazon →
+                div(class="flex justify-center")
+                    a(href="https://www.amazon.com.br/dp/B0DXQKCZST" target="_blank" rel="noopener")
+                        img(src="https://m.media-amazon.com/images/I/716BWWx72OL._SY522_.jpg" alt="Intimidades Poéticas — capa do livro" class="w-52 rounded-2xl shadow-2xl ring-1 ring-zinc-700")
+    section(id="contato" class="py-24 border-t border-zinc-800/50")
+        div(class="max-w-5xl mx-auto px-6")
+            div(class="flex items-center gap-3 mb-10")
+                span(class="text-violet-400 font-display text-sm font-semibold tracking-widest uppercase") 04
+                h2(class="text-3xl font-bold text-white font-display") Contato
+            p(class="text-zinc-400 leading-relaxed max-w-lg") Tem um projeto em mente, quer colaborar ou apenas dizer olá? Fique à vontade.
+            div(class="mt-8 flex flex-col gap-4 max-w-md")
+                a(href="mailto:marcos.cantor@gmail.com" class="flex items-center gap-4 bg-zinc-900 border border-zinc-800 rounded-2xl px-6 py-4 hover:border-zinc-600 transition-colors group")
+                    span(class="text-2xl") ✉️
+                    div
+                        p(class="text-xs text-zinc-500 uppercase tracking-widest font-medium") Email
+                        p(class="text-zinc-200 text-sm font-semibold group-hover:text-white transition-colors") marcos.cantor@gmail.com
+                a(href="https://wa.me/351914068901" target="_blank" rel="noopener" class="flex items-center gap-4 bg-zinc-900 border border-zinc-800 rounded-2xl px-6 py-4 hover:border-zinc-600 transition-colors group")
+                    span(class="text-2xl") 💬
+                    div
+                        p(class="text-xs text-zinc-500 uppercase tracking-widest font-medium") WhatsApp
+                        p(class="text-zinc-200 text-sm font-semibold group-hover:text-white transition-colors") +351 914 068 901
