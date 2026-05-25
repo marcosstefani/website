@@ -230,6 +230,7 @@ function selectExample(index) {
   renderTabs();
   hideError();
   updatePreview('');
+  btnRun.click();
 }
 
 // ── View toggle ───────────────────────────────────────────────────────────────
@@ -284,6 +285,4 @@ if (copyInstall) {
 
 // ── Init ──────────────────────────────────────────────────────────────────────
 renderTabs();
-const first = EXAMPLES[0];
-codeArea.value = first.code;
-ctxArea.value = JSON.stringify(first.ctx, null, 2);
+selectExample(0);
