@@ -60,7 +60,7 @@ block content
                 div
                     h3(class="text-xl font-bold text-zinc-100 font-display mb-4") Cantor Lírico
                     p(class="text-zinc-400 leading-relaxed") Cantor desde os 7 anos, tenor por vocação. Passei pelo Coral Maria Penedo, fui um dos fundadores do grupo de ópera Opera Prima e um dos precursores da ópera no cenário capixaba. Como solista, atuei em obras como os Requiems de Mozart e Verdi, o Messias de Handel, a Carmina Burana de Orff e o Magnificat de Bach. Na ópera: O Guarani, Il Combattimento, Madame Butterfly, O Barbeiro de Sevilha, Rigoletto e Così fan tutte.
-                    p(class="mt-4 text-zinc-400 leading-relaxed") Em Porto, integro o Coro da Casa da Música e o Coro Polifónico da Lapa.
+                    p(class="mt-4 text-zinc-400 leading-relaxed") Em Porto, sou suplente do Coro da Casa da Música e integro o Coro Polifónico da Lapa.
                     div(class="mt-6 flex flex-wrap gap-3")
                         a(href="https://www.coropolifonicodalapa.pt" target="_blank" rel="noopener" class="px-4 py-2 border border-zinc-700 text-zinc-300 text-sm font-medium rounded-xl hover:border-zinc-500 hover:text-white transition-colors") Coro Polifónico da Lapa
                         a(href="https://www.youtube.com/@marcosstefani/videos" target="_blank" rel="noopener" class="px-4 py-2 border border-zinc-700 text-zinc-300 text-sm font-medium rounded-xl hover:border-zinc-500 hover:text-white transition-colors") YouTube ↗
