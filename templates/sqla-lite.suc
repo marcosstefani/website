@@ -28,7 +28,11 @@ block content
                 div(class="mt-10 flex flex-wrap gap-4")
                     a(href="https://github.com/ElaraDevSolutions/sqla-lite" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-6 py-3 bg-zinc-100 text-zinc-900 text-sm font-bold rounded-xl hover:bg-white transition-colors") ↗ GitHub
                     a(href="https://pypi.org/project/sqla-lite/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-6 py-3 border border-zinc-700 text-zinc-300 text-sm font-bold rounded-xl hover:border-zinc-500 hover:text-white transition-colors") PyPI
-            div(class="w-full lg:w-80 flex-shrink-0")
+            div(class="w-full lg:w-80 flex-shrink-0 flex flex-col gap-4")
+                div(class="bg-zinc-900 border border-zinc-800 rounded-2xl p-5")
+                    p(class="text-zinc-500 text-xs font-semibold uppercase tracking-widest mb-3") Instalação
+                    div(class="bg-zinc-950 rounded-xl px-4 py-3")
+                        span(class="font-mono text-sm text-violet-400") pip install sqla-lite
                 div(class="bg-zinc-900 border border-zinc-800 rounded-2xl p-5")
                     p(class="text-zinc-500 text-xs font-semibold uppercase tracking-widest mb-3") Quando usar
                     ul(class="space-y-2")
@@ -48,23 +52,29 @@ block content
                     h3(class="text-xl font-bold text-white font-display") 1. Definição de modelo
                     p(class="mt-1 text-zinc-400 text-sm") Mesma ideia do SQLAlchemy, com marcadores declarativos do sqla-lite.
                 div(class="grid lg:grid-cols-2")
-                    div(class="border-b lg:border-b-0 lg:border-r border-zinc-800")
-                        div(class="px-4 py-2 bg-zinc-950 border-b border-zinc-800")
-                            span(class="text-zinc-500 text-xs font-mono") SQLAlchemy
-                        pre(class="m-0 p-5 text-xs text-zinc-300 overflow-x-auto")
-                            code(class="font-mono leading-relaxed")
+                    div(class="border-b lg:border-b-0 lg:border-r border-zinc-700 flex flex-col bg-zinc-900")
+                        div(class="px-4 py-2 bg-zinc-900 border-b border-zinc-700")
+                            span(class="text-zinc-400 text-xs font-mono") SQLAlchemy
+                        pre(class="m-0 px-4 py-5 text-xs text-zinc-200 bg-zinc-900 overflow-x-auto whitespace-pre text-left flex-1")
+                            code(class="block font-mono leading-5")
+                                | from sqlalchemy import Column, Integer, String
+                                | from sqlalchemy.orm import declarative_base
+                                | 
+                                | Base = declarative_base()
+                                | 
                                 | class User(Base):
                                 |     __tablename__ = "users"
                                 | 
                                 |     id = Column(Integer, primary_key=True)
                                 |     name = Column(String(100))
                                 |     age = Column(Integer)
-                    div
-                        div(class="px-4 py-2 bg-zinc-950 border-b border-zinc-800")
-                            span(class="text-violet-400 text-xs font-mono") sqla-lite
-                        pre(class="m-0 p-5 text-xs text-zinc-200 overflow-x-auto")
-                            code(class="font-mono leading-relaxed")
-                                | from sqla_lite import table, Id, Size
+                    div(class="flex flex-col bg-white")
+                        div(class="px-4 py-2 bg-zinc-100 border-b border-zinc-300")
+                            span(class="text-violet-700 text-xs font-mono") sqla-lite
+                        pre(class="m-0 px-4 py-5 text-xs text-zinc-900 bg-white overflow-x-auto whitespace-pre text-left flex-1")
+                            code(class="block font-mono leading-5")
+                                | from sqla_lite import Id, Size
+                                | from sqla_lite import table
                                 | 
                                 | @table("users")
                                 | class User:
@@ -78,25 +88,41 @@ block content
                     h3(class="text-xl font-bold text-white font-display") 2. Repositório e persistência
                     p(class="mt-1 text-zinc-400 text-sm") Configuração global do engine e uso sem boilerplate de sessão por operação.
                 div(class="grid lg:grid-cols-2")
-                    div(class="border-b lg:border-b-0 lg:border-r border-zinc-800")
-                        div(class="px-4 py-2 bg-zinc-950 border-b border-zinc-800")
-                            span(class="text-zinc-500 text-xs font-mono") SQLAlchemy
-                        pre(class="m-0 p-5 text-xs text-zinc-300 overflow-x-auto")
-                            code(class="font-mono leading-relaxed")
-                                | with Session(engine) as session:
-                                |     user = User(name="John Doe", age=25)
-                                |     session.add(user)
-                                |     session.commit()
+                    div(class="border-b lg:border-b-0 lg:border-r border-zinc-700 flex flex-col bg-zinc-900")
+                        div(class="px-4 py-2 bg-zinc-900 border-b border-zinc-700")
+                            span(class="text-zinc-400 text-xs font-mono") SQLAlchemy
+                        pre(class="m-0 px-4 py-5 text-xs text-zinc-200 bg-zinc-900 overflow-x-auto whitespace-pre text-left flex-1")
+                            code(class="block font-mono leading-5")
+                                | from sqlalchemy import create_engine
+                                | from sqlalchemy.orm import Session
                                 | 
-                                | with Session(engine) as session:
-                                |     loaded = session.get(User, 1)
-                    div
-                        div(class="px-4 py-2 bg-zinc-950 border-b border-zinc-800")
-                            span(class="text-violet-400 text-xs font-mono") sqla-lite
-                        pre(class="m-0 p-5 text-xs text-zinc-200 overflow-x-auto")
-                            code(class="font-mono leading-relaxed")
-                                | from sqla_lite import repository, configure_database
+                                | engine = create_engine("sqlite:///:memory:")
+                                | Base.metadata.create_all(engine)
+                                | 
+                                | class UserRepository:
+                                |     def save(self, user):
+                                |         with Session(engine) as session:
+                                |             session.add(user)
+                                |             session.commit()
+                                | 
+                                |     def get(self, user_id):
+                                |         with Session(engine) as session:
+                                |             return session.get(User, user_id)
+                                | 
+                                | repo = UserRepository()
+                                | user = User(name="John Doe", age=25)
+                                | repo.save(user)
+                                | loaded = repo.get(1)
+                    div(class="flex flex-col bg-white")
+                        div(class="px-4 py-2 bg-zinc-100 border-b border-zinc-300")
+                            span(class="text-violet-700 text-xs font-mono") sqla-lite
+                        pre(class="m-0 px-4 py-5 text-xs text-zinc-900 bg-white overflow-x-auto whitespace-pre text-left flex-1")
+                            code(class="block font-mono leading-5")
+                                | from sqlalchemy import create_engine
+                                | from sqla_lite import configure_database, repository
                                 | from sqla_lite.core import Base
+                                | 
+                                | engine = create_engine("sqlite:///:memory:")
                                 | 
                                 | @repository(User)
                                 | class UserRepository:
@@ -106,7 +132,8 @@ block content
                                 | configure_database(engine)
                                 | 
                                 | repo = UserRepository()
-                                | repo.save(User(name="John Doe", age=25))
+                                | user = User(name="John Doe", age=25)
+                                | repo.save(user)
                                 | loaded = repo.get(1)
 
             article(class="border border-zinc-800 rounded-2xl overflow-hidden")
@@ -114,11 +141,13 @@ block content
                     h3(class="text-xl font-bold text-white font-display") 3. Query customizada
                     p(class="mt-1 text-zinc-400 text-sm") Método declarativo com @query para filtros comuns dentro do repositório.
                 div(class="grid lg:grid-cols-2")
-                    div(class="border-b lg:border-b-0 lg:border-r border-zinc-800")
-                        div(class="px-4 py-2 bg-zinc-950 border-b border-zinc-800")
-                            span(class="text-zinc-500 text-xs font-mono") SQLAlchemy
-                        pre(class="m-0 p-5 text-xs text-zinc-300 overflow-x-auto")
-                            code(class="font-mono leading-relaxed")
+                    div(class="border-b lg:border-b-0 lg:border-r border-zinc-700 flex flex-col bg-zinc-900")
+                        div(class="px-4 py-2 bg-zinc-900 border-b border-zinc-700")
+                            span(class="text-zinc-400 text-xs font-mono") SQLAlchemy
+                        pre(class="m-0 px-4 py-5 text-xs text-zinc-200 bg-zinc-900 overflow-x-auto whitespace-pre text-left flex-1")
+                            code(class="block font-mono leading-5")
+                                | from sqlalchemy.orm import Session
+                                | 
                                 | class UserRepository:
                                 |     def find_adults(self):
                                 |         with Session(self.engine) as session:
@@ -127,11 +156,11 @@ block content
                                 |                 .filter(User.age >= 18)
                                 |                 .all()
                                 |             )
-                    div
-                        div(class="px-4 py-2 bg-zinc-950 border-b border-zinc-800")
-                            span(class="text-violet-400 text-xs font-mono") sqla-lite
-                        pre(class="m-0 p-5 text-xs text-zinc-200 overflow-x-auto")
-                            code(class="font-mono leading-relaxed")
+                    div(class="flex flex-col bg-white")
+                        div(class="px-4 py-2 bg-zinc-100 border-b border-zinc-300")
+                            span(class="text-violet-700 text-xs font-mono") sqla-lite
+                        pre(class="m-0 px-4 py-5 text-xs text-zinc-900 bg-white overflow-x-auto whitespace-pre text-left flex-1")
+                            code(class="block font-mono leading-5")
                                 | from sqla_lite import repository, query
                                 | 
                                 | @repository(User)
