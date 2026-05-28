@@ -31,8 +31,9 @@ block content
             div(class="w-full lg:w-80 flex-shrink-0 flex flex-col gap-4")
                 div(class="bg-zinc-900 border border-zinc-800 rounded-2xl p-5")
                     p(class="text-zinc-500 text-xs font-semibold uppercase tracking-widest mb-3") Instalação
-                    div(class="bg-zinc-950 rounded-xl px-4 py-3")
+                    div(class="flex items-center justify-between bg-zinc-950 rounded-xl px-4 py-3")
                         span(class="font-mono text-sm text-violet-400") pip install sqla-lite
+                        button(id="copy-install-sqla" class="text-zinc-600 hover:text-zinc-300 text-xs transition-colors ml-3") copiar
                 div(class="bg-zinc-900 border border-zinc-800 rounded-2xl p-5")
                     p(class="text-zinc-500 text-xs font-semibold uppercase tracking-widest mb-3") Quando usar
                     ul(class="space-y-2")
@@ -191,3 +192,4 @@ block content
             div(class="mt-7 flex flex-wrap gap-3")
                 a(href="https://github.com/ElaraDevSolutions/sqla-lite" target="_blank" rel="noopener" class="px-5 py-2.5 bg-violet-600 text-white text-sm font-semibold rounded-xl hover:bg-violet-500 transition-colors") Ver repositório
                 a(href="/" class="px-5 py-2.5 border border-zinc-700 text-zinc-300 text-sm font-semibold rounded-xl hover:border-zinc-500 hover:text-white transition-colors") Voltar para Home
+    | <script src="/static/js/sqla-lite.js"></script>
