@@ -1,4 +1,5 @@
 extends layout
+include components/install_card
 
 block seo
     meta(name="description" content="sqla-lite — camada declarativa leve sobre SQLAlchemy. Compare código real e veja por que usar em projetos Python.")
@@ -11,8 +12,8 @@ block content
             div(class="flex-1 min-w-0")
                 span(class="inline-block mb-4 px-3 py-1 bg-violet-500/15 text-violet-400 text-xs font-semibold rounded-full tracking-widest uppercase border border-violet-500/25") ORM Productivity Layer
                 h1(class="text-5xl font-bold text-white leading-tight font-display") sqla-lite
-                p(class="mt-4 text-zinc-400 text-lg leading-relaxed max-w-2xl") Uma camada declarativa sobre SQLAlchemy para escrever menos código repetitivo, padronizar modelos e acelerar desenvolvimento sem perder o controle da ORM.
-                ul(class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl" style="list-style:none;padding:0;margin-top:2rem;")
+                p(class="mt-4 text-zinc-400 text-lg leading-relaxed max-w-xl") Uma camada declarativa sobre SQLAlchemy para escrever menos código repetitivo, padronizar modelos e acelerar desenvolvimento sem perder o controle da ORM.
+                ul(class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-lg" style="list-style:none;padding:0;margin-top:2rem;")
                     li(class="flex items-start gap-3")
                         span(class="text-violet-400 font-bold") ✦
                         span(class="text-zinc-300 text-sm") Menos boilerplate em models e queries
@@ -28,11 +29,8 @@ block content
                 div(class="mt-10 flex flex-wrap gap-4")
                     a(href="https://github.com/ElaraDevSolutions/sqla-lite" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-6 py-3 bg-zinc-100 text-zinc-900 text-sm font-bold rounded-xl hover:bg-white transition-colors") ↗ GitHub
                     a(href="https://pypi.org/project/sqla-lite/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-6 py-3 border border-zinc-700 text-zinc-300 text-sm font-bold rounded-xl hover:border-zinc-500 hover:text-white transition-colors") PyPI
-            div(class="w-full lg:w-80 flex-shrink-0 flex flex-col gap-4")
-                div(class="bg-zinc-900 border border-zinc-800 rounded-2xl p-5")
-                    p(class="text-zinc-500 text-xs font-semibold uppercase tracking-widest mb-3") Instalação
-                    div(class="bg-zinc-950 rounded-xl px-4 py-3")
-                        span(class="font-mono text-sm text-violet-400") pip install sqla-lite
+            div(class="hidden lg:flex flex-col gap-4 flex-shrink-0 w-80")
+                +install_card(install_command="pip install sqla-lite")
                 div(class="bg-zinc-900 border border-zinc-800 rounded-2xl p-5")
                     p(class="text-zinc-500 text-xs font-semibold uppercase tracking-widest mb-3") Quando usar
                     ul(class="space-y-2")
@@ -191,3 +189,4 @@ block content
             div(class="mt-7 flex flex-wrap gap-3")
                 a(href="https://github.com/ElaraDevSolutions/sqla-lite" target="_blank" rel="noopener" class="px-5 py-2.5 bg-violet-600 text-white text-sm font-semibold rounded-xl hover:bg-violet-500 transition-colors") Ver repositório
                 a(href="/" class="px-5 py-2.5 border border-zinc-700 text-zinc-300 text-sm font-semibold rounded-xl hover:border-zinc-500 hover:text-white transition-colors") Voltar para Home
+    | <script src="/static/js/sqla-lite.js"></script>

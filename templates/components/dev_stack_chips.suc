@@ -1,0 +1,9 @@
+span(class="px-3 py-1 bg-zinc-800 text-zinc-300 text-xs font-medium rounded-full") Python
+span(class="px-3 py-1 bg-zinc-800 text-zinc-300 text-xs font-medium rounded-full") Java
+span(class="px-3 py-1 bg-zinc-800 text-zinc-300 text-xs font-medium rounded-full") Kotlin
+span(class="px-3 py-1 bg-zinc-800 text-zinc-300 text-xs font-medium rounded-full") JavaScript
+span(class="px-3 py-1 bg-zinc-800 text-zinc-300 text-xs font-medium rounded-full") Spring Boot
+span(class="px-3 py-1 bg-zinc-800 text-zinc-300 text-xs font-medium rounded-full") Flask
+span(class="px-3 py-1 bg-zinc-800 text-zinc-300 text-xs font-medium rounded-full") Terraform
+span(class="px-3 py-1 bg-zinc-800 text-zinc-300 text-xs font-medium rounded-full") Docker
+span(class="px-3 py-1 bg-zinc-800 text-zinc-300 text-xs font-medium rounded-full") Kubernetes

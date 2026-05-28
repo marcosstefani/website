@@ -1,0 +1,21 @@
+a(href="/sucuri" class="block bg-zinc-900 border border-violet-500/40 rounded-2xl p-6 hover:border-violet-400/60 transition-colors")
+    div(class="flex items-center justify-between")
+        h3(class="text-lg font-bold text-white font-display") sucuri
+        span(class="text-violet-400 text-xs font-semibold")
+            b ★ {sucuri_stars}
+    p(class="mt-1 text-violet-400 text-xs font-medium") Esta página foi feita com Sucuri
+    p(class="mt-3 text-zinc-400 text-sm leading-relaxed") Template engine para Python inspirado no PugJS. Sintaxe elegante baseada em indentação, sem dependência de frameworks.
+
+a(href="/sqla-lite" class="block bg-zinc-900 border border-zinc-800 rounded-2xl p-6 hover:border-zinc-600 transition-colors")
+    div(class="flex items-center justify-between")
+        h3(class="text-lg font-bold text-white font-display") sqla-lite
+        span(class="text-zinc-500 text-xs font-semibold")
+            b ★ {sqla_lite_stars}
+    p(class="mt-3 text-zinc-400 text-sm leading-relaxed") Camada declarativa leve sobre o SQLAlchemy que elimina boilerplate e mantém os modelos limpos.
+
+a(href="https://github.com/ElaraDevSolutions/gittool" target="_blank" rel="noopener" class="block bg-zinc-900 border border-zinc-800 rounded-2xl p-6 hover:border-zinc-600 transition-colors")
+    div(class="flex items-center justify-between")
+        h3(class="text-lg font-bold text-white font-display") gittool
+        span(class="text-zinc-500 text-xs font-semibold")
+            b ★ {gittool_stars}
+    p(class="mt-3 text-zinc-400 text-sm leading-relaxed") CLI leve que estende o Git com fluxos mais inteligentes, gestão de chaves SSH e suporte a múltiplas contas.
