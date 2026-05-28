@@ -1,0 +1,164 @@
+extends layout
+
+block seo
+    meta(name="description" content="sqla-lite — camada declarativa leve sobre SQLAlchemy. Compare código real e veja por que usar em projetos Python.")
+    meta(property="og:title" content="sqla-lite — SQLAlchemy com menos boilerplate")
+    meta(property="og:description" content="Comparações práticas entre SQLAlchemy tradicional e sqla-lite para produtividade, legibilidade e consistência.")
+
+block content
+    section(class="max-w-5xl mx-auto px-6 py-24 border-b border-zinc-800/50")
+        div(class="flex flex-col lg:flex-row gap-12 items-start")
+            div(class="flex-1 min-w-0")
+                span(class="inline-block mb-4 px-3 py-1 bg-violet-500/15 text-violet-400 text-xs font-semibold rounded-full tracking-widest uppercase border border-violet-500/25") ORM Productivity Layer
+                h1(class="text-5xl font-bold text-white leading-tight font-display") sqla-lite
+                p(class="mt-4 text-zinc-400 text-lg leading-relaxed max-w-2xl") Uma camada declarativa sobre SQLAlchemy para escrever menos código repetitivo, padronizar modelos e acelerar desenvolvimento sem perder o controle da ORM.
+                ul(class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl" style="list-style:none;padding:0;margin-top:2rem;")
+                    li(class="flex items-start gap-3")
+                        span(class="text-violet-400 font-bold") ✦
+                        span(class="text-zinc-300 text-sm") Menos boilerplate em models e queries
+                    li(class="flex items-start gap-3")
+                        span(class="text-violet-400 font-bold") ✦
+                        span(class="text-zinc-300 text-sm") API declarativa com foco em legibilidade
+                    li(class="flex items-start gap-3")
+                        span(class="text-violet-400 font-bold") ✦
+                        span(class="text-zinc-300 text-sm") Mantém compatibilidade com ecossistema SQLAlchemy
+                    li(class="flex items-start gap-3")
+                        span(class="text-violet-400 font-bold") ✦
+                        span(class="text-zinc-300 text-sm") Curva de adoção rápida para times Python
+                div(class="mt-10 flex flex-wrap gap-4")
+                    a(href="https://github.com/ElaraDevSolutions/sqla-lite" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-6 py-3 bg-zinc-100 text-zinc-900 text-sm font-bold rounded-xl hover:bg-white transition-colors") ↗ GitHub
+                    a(href="https://pypi.org/project/sqla-lite/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-6 py-3 border border-zinc-700 text-zinc-300 text-sm font-bold rounded-xl hover:border-zinc-500 hover:text-white transition-colors") PyPI
+            div(class="w-full lg:w-80 flex-shrink-0")
+                div(class="bg-zinc-900 border border-zinc-800 rounded-2xl p-5")
+                    p(class="text-zinc-500 text-xs font-semibold uppercase tracking-widest mb-3") Quando usar
+                    ul(class="space-y-2")
+                        li(class="text-zinc-300 text-sm") • APIs e backends com muitos modelos
+                        li(class="text-zinc-300 text-sm") • Times que querem padronizar convenções
+                        li(class="text-zinc-300 text-sm") • Projetos que exigem produtividade sem mágica excessiva
+
+    section(class="max-w-6xl mx-auto px-6 py-20")
+        div(class="mb-10")
+            span(class="text-violet-400 font-display text-sm font-semibold tracking-widest uppercase") Comparações
+            h2(class="mt-2 text-3xl font-bold text-white font-display") SQLAlchemy vs sqla-lite
+            p(class="mt-3 text-zinc-400 max-w-2xl") Exemplos práticos para mostrar o ganho de clareza no dia a dia.
+
+        div(class="space-y-8")
+            article(class="border border-zinc-800 rounded-2xl overflow-hidden")
+                div(class="px-6 py-4 bg-zinc-900/60 border-b border-zinc-800")
+                    h3(class="text-xl font-bold text-white font-display") 1. Definição de modelo
+                    p(class="mt-1 text-zinc-400 text-sm") Mesma ideia do SQLAlchemy, com marcadores declarativos do sqla-lite.
+                div(class="grid lg:grid-cols-2")
+                    div(class="border-b lg:border-b-0 lg:border-r border-zinc-800")
+                        div(class="px-4 py-2 bg-zinc-950 border-b border-zinc-800")
+                            span(class="text-zinc-500 text-xs font-mono") SQLAlchemy
+                        pre(class="m-0 p-5 text-xs text-zinc-300 overflow-x-auto")
+                            code(class="font-mono leading-relaxed")
+                                | class User(Base):
+                                |     __tablename__ = "users"
+                                | 
+                                |     id = Column(Integer, primary_key=True)
+                                |     name = Column(String(100))
+                                |     age = Column(Integer)
+                    div
+                        div(class="px-4 py-2 bg-zinc-950 border-b border-zinc-800")
+                            span(class="text-violet-400 text-xs font-mono") sqla-lite
+                        pre(class="m-0 p-5 text-xs text-zinc-200 overflow-x-auto")
+                            code(class="font-mono leading-relaxed")
+                                | from sqla_lite import table, Id, Size
+                                | 
+                                | @table("users")
+                                | class User:
+                                | 
+                                |     id: int = Id()
+                                |     name: str = Size(100)
+                                |     age: int
+
+            article(class="border border-zinc-800 rounded-2xl overflow-hidden")
+                div(class="px-6 py-4 bg-zinc-900/60 border-b border-zinc-800")
+                    h3(class="text-xl font-bold text-white font-display") 2. Repositório e persistência
+                    p(class="mt-1 text-zinc-400 text-sm") Configuração global do engine e uso sem boilerplate de sessão por operação.
+                div(class="grid lg:grid-cols-2")
+                    div(class="border-b lg:border-b-0 lg:border-r border-zinc-800")
+                        div(class="px-4 py-2 bg-zinc-950 border-b border-zinc-800")
+                            span(class="text-zinc-500 text-xs font-mono") SQLAlchemy
+                        pre(class="m-0 p-5 text-xs text-zinc-300 overflow-x-auto")
+                            code(class="font-mono leading-relaxed")
+                                | with Session(engine) as session:
+                                |     user = User(name="John Doe", age=25)
+                                |     session.add(user)
+                                |     session.commit()
+                                | 
+                                | with Session(engine) as session:
+                                |     loaded = session.get(User, 1)
+                    div
+                        div(class="px-4 py-2 bg-zinc-950 border-b border-zinc-800")
+                            span(class="text-violet-400 text-xs font-mono") sqla-lite
+                        pre(class="m-0 p-5 text-xs text-zinc-200 overflow-x-auto")
+                            code(class="font-mono leading-relaxed")
+                                | from sqla_lite import repository, configure_database
+                                | from sqla_lite.core import Base
+                                | 
+                                | @repository(User)
+                                | class UserRepository:
+                                |     pass
+                                | 
+                                | Base.metadata.create_all(engine)
+                                | configure_database(engine)
+                                | 
+                                | repo = UserRepository()
+                                | repo.save(User(name="John Doe", age=25))
+                                | loaded = repo.get(1)
+
+            article(class="border border-zinc-800 rounded-2xl overflow-hidden")
+                div(class="px-6 py-4 bg-zinc-900/60 border-b border-zinc-800")
+                    h3(class="text-xl font-bold text-white font-display") 3. Query customizada
+                    p(class="mt-1 text-zinc-400 text-sm") Método declarativo com @query para filtros comuns dentro do repositório.
+                div(class="grid lg:grid-cols-2")
+                    div(class="border-b lg:border-b-0 lg:border-r border-zinc-800")
+                        div(class="px-4 py-2 bg-zinc-950 border-b border-zinc-800")
+                            span(class="text-zinc-500 text-xs font-mono") SQLAlchemy
+                        pre(class="m-0 p-5 text-xs text-zinc-300 overflow-x-auto")
+                            code(class="font-mono leading-relaxed")
+                                | class UserRepository:
+                                |     def find_adults(self):
+                                |         with Session(self.engine) as session:
+                                |             return (
+                                |                 session.query(User)
+                                |                 .filter(User.age >= 18)
+                                |                 .all()
+                                |             )
+                    div
+                        div(class="px-4 py-2 bg-zinc-950 border-b border-zinc-800")
+                            span(class="text-violet-400 text-xs font-mono") sqla-lite
+                        pre(class="m-0 p-5 text-xs text-zinc-200 overflow-x-auto")
+                            code(class="font-mono leading-relaxed")
+                                | from sqla_lite import repository, query
+                                | 
+                                | @repository(User)
+                                | class UserRepository:
+                                |     @query
+                                |     def find_adults(self, session):
+                                |         return session.filter(self.entity_class.age >= 18).all()
+
+    section(class="max-w-5xl mx-auto px-6 py-20 border-t border-zinc-800/50")
+        div(class="grid md:grid-cols-3 gap-6")
+            div(class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6")
+                p(class="text-violet-400 text-xs font-semibold tracking-widest uppercase") Benefício
+                h3(class="mt-3 text-lg font-bold text-white font-display") Produtividade real
+                p(class="mt-3 text-zinc-400 text-sm leading-relaxed") Menos código repetitivo em CRUD e consultas comuns, reduzindo tempo de entrega.
+            div(class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6")
+                p(class="text-violet-400 text-xs font-semibold tracking-widest uppercase") Benefício
+                h3(class="mt-3 text-lg font-bold text-white font-display") Legibilidade de equipe
+                p(class="mt-3 text-zinc-400 text-sm leading-relaxed") Código mais previsível para onboarding e manutenção de projetos de médio e grande porte.
+            div(class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6")
+                p(class="text-violet-400 text-xs font-semibold tracking-widest uppercase") Benefício
+                h3(class="mt-3 text-lg font-bold text-white font-display") Menos atrito arquitetural
+                p(class="mt-3 text-zinc-400 text-sm leading-relaxed") A biblioteca simplifica sem esconder a base SQLAlchemy, mantendo liberdade para casos avançados.
+
+    section(class="max-w-5xl mx-auto px-6 pb-24")
+        div(class="bg-zinc-900 border border-violet-500/30 rounded-2xl p-8")
+            h2(class="text-2xl font-bold text-white font-display") Por que usar sqla-lite?
+            p(class="mt-3 text-zinc-400 leading-relaxed") Porque ele resolve o que mais cansa no dia a dia com ORM: repetição, padrões dispersos e código difícil de escalar em equipe. sqla-lite entrega velocidade sem abrir mão de clareza.
+            div(class="mt-7 flex flex-wrap gap-3")
+                a(href="https://github.com/ElaraDevSolutions/sqla-lite" target="_blank" rel="noopener" class="px-5 py-2.5 bg-violet-600 text-white text-sm font-semibold rounded-xl hover:bg-violet-500 transition-colors") Ver repositório
+                a(href="/" class="px-5 py-2.5 border border-zinc-700 text-zinc-300 text-sm font-semibold rounded-xl hover:border-zinc-500 hover:text-white transition-colors") Voltar para Home

@@ -27,6 +27,11 @@ def sucuri_page():
     return app.render("sucuri.suc", {"page_title": "Sucuri"})
 
 
+@app.get("/sqla-lite")
+def sqla_lite_page():
+    return app.render("sqla-lite.suc", {"page_title": "sqla-lite"})
+
+
 @app.post("/api/render")
 def api_render(request):
     code = request.json.get("code", "")
