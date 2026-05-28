@@ -1,4 +1,4 @@
-const copyInstallSqla = document.getElementById('copy-install-sqla');
+const copyInstallSqla = document.getElementById('copy-install');
 
 if (copyInstallSqla) {
   copyInstallSqla.addEventListener('click', () => {

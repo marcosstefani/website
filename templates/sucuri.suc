@@ -1,4 +1,5 @@
 extends layout
+include components/install_card
 
 block seo
     meta(name="description" content="Sucuri — Template engine para Python inspirado no PugJS. Sintaxe elegante baseada em indentação, sem dependência de frameworks.")
@@ -33,12 +34,8 @@ block content
                 div(class="mt-10 flex flex-wrap gap-4")
                     a(href="https://github.com/marcosstefani/sucuri" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-6 py-3 bg-zinc-100 text-zinc-900 text-sm font-bold rounded-xl hover:bg-white transition-colors") ↗ GitHub
                     a(href="#" class="inline-flex items-center gap-2 px-6 py-3 bg-violet-600/20 text-violet-400/60 text-sm font-bold rounded-xl border border-violet-500/20 cursor-not-allowed select-none") ▶ Curso Udemy (em breve)
-            div(class="hidden lg:flex flex-col gap-4 flex-shrink-0 w-72")
-                div(class="bg-zinc-900 border border-zinc-800 rounded-2xl p-5")
-                    p(class="text-zinc-500 text-xs font-semibold uppercase tracking-widest mb-3") Instalação
-                    div(class="flex items-center justify-between bg-zinc-950 rounded-xl px-4 py-3")
-                        span(class="font-mono text-sm text-violet-400") pip install sucuri
-                        button(id="copy-install" class="text-zinc-600 hover:text-zinc-300 text-xs transition-colors ml-3") copiar
+            div(class="hidden lg:flex flex-col gap-4 flex-shrink-0 w-80")
+                +install_card(install_command="pip install sucuri")
                 div(class="bg-zinc-900 border border-zinc-800 rounded-2xl p-5")
                     p(class="text-zinc-500 text-xs font-semibold uppercase tracking-widest mb-3") Compatível com
                     div(class="flex flex-wrap gap-2")

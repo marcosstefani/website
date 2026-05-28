@@ -10,18 +10,12 @@ html(lang="pt")
         link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;600;700;800&display=swap")
         link(rel="stylesheet" href="/static/style/main.css")
     body(class="bg-zinc-950 text-zinc-100")
+        include components/dev_menu
         nav(class="fixed top-0 left-0 right-0 z-50 bg-zinc-950/90 backdrop-blur-sm border-b border-zinc-800")
             div(class="max-w-5xl mx-auto px-6 flex items-center justify-end h-16")
                 div(class="flex gap-6 text-sm font-medium text-zinc-400")
                     a(href="/" class="hover:text-white transition-colors") Home
-                    div(class="relative group")
-                        a(href="/#dev" class="hover:text-white transition-colors inline-flex items-center gap-1")
-                            | Dev
-                            span(class="text-[10px] text-zinc-500 group-hover:text-zinc-300 transition-colors") ▾
-                        div(class="absolute top-full left-0 pt-3 hidden group-hover:block")
-                            div(class="min-w-44 bg-zinc-900 border border-zinc-800 rounded-xl shadow-2xl p-2")
-                                a(href="/sucuri" class="block px-3 py-2 rounded-lg text-zinc-300 hover:bg-zinc-800 hover:text-white transition-colors") sucuri
-                                a(href="/sqla-lite" class="block px-3 py-2 rounded-lg text-zinc-300 hover:bg-zinc-800 hover:text-white transition-colors") sqla-lite
+                    +dev_menu
                     a(href="/#musica" class="hover:text-white transition-colors") Música
                     a(href="/#poesia" class="hover:text-white transition-colors") Poesia
                     a(href="/#contato" class="hover:text-white transition-colors") Contato
