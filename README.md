@@ -18,7 +18,7 @@ website/
 ├── templates/
 │   ├── static/
 │   │   ├── images/        # avatar e demais imagens
-│   │   ├── js/
+│   │   ├── scripts/
 │   │   │   └── playground.js
 │   │   └── style/
 │   │       └── main.css
