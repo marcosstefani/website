@@ -2,11 +2,8 @@ name: Keep Portfolio Warm
 
 on:
   schedule:
-    # GitHub Actions cron uses UTC.
-    # Approx. Portugal (WEST, UTC+1): 05:05, 12:05, 23:05
-    - cron: "5 4 * * *"
-    - cron: "5 11 * * *"
-    - cron: "5 22 * * *"
+    # GitHub Actions cron uses UTC. Runs every hour every day.
+    - cron: "0 * * * *"
   workflow_dispatch:
 
 jobs:
