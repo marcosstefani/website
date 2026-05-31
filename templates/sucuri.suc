@@ -74,4 +74,4 @@ block content
                     iframe(id="preview-frame" class="w-full border-0 bg-white flex-1" style="min-height:380px;")
                     pre(id="html-output" class="hidden w-full overflow-auto text-xs font-mono text-zinc-300 px-5 py-4 leading-relaxed m-0 flex-1" style="min-height:380px;")
                     div(id="error-msg" class="hidden px-4 py-3 bg-red-950/40 border-t border-red-900/40 text-red-400 text-xs font-mono flex-shrink-0")
-    | <script src="/static/js/playground.js"></script>
+    | <script src="/static/scripts/playground.js"></script>

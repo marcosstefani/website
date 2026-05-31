@@ -189,4 +189,4 @@ block content
             div(class="mt-7 flex flex-wrap gap-3")
                 a(href="https://github.com/ElaraDevSolutions/sqla-lite" target="_blank" rel="noopener" class="px-5 py-2.5 bg-violet-600 text-white text-sm font-semibold rounded-xl hover:bg-violet-500 transition-colors") Ver repositório
                 a(href="/" class="px-5 py-2.5 border border-zinc-700 text-zinc-300 text-sm font-semibold rounded-xl hover:border-zinc-500 hover:text-white transition-colors") Voltar para Home
-    | <script src="/static/js/sqla-lite.js"></script>
+    | <script src="/static/scripts/sqla-lite.js"></script>
