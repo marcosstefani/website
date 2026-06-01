@@ -16,25 +16,44 @@ html(lang="pt-BR")
         include components/dev_menu
         nav(class="fixed top-0 left-0 right-0 z-50 bg-zinc-950/90 backdrop-blur-sm border-b border-zinc-800")
             div(class="max-w-5xl mx-auto px-6 flex items-center justify-end h-16")
-                div(class="flex gap-6 text-sm font-medium text-zinc-400")
+                div(class="flex gap-6 text-sm font-medium text-zinc-400 items-center")
                     a(href="/" class="hover:text-white transition-colors") Home
                     +dev_menu
                     a(href="/#musica" class="hover:text-white transition-colors") Música
                     a(href="/#poesia" class="hover:text-white transition-colors") Poesia
                     a(href="/#contato" class="hover:text-white transition-colors") Contato
+                    select#lang-select(class="bg-transparent text-zinc-400 hover:text-white text-sm border-none outline-none cursor-pointer transition-colors" aria-label="Select language")
+                        option(value="" disabled selected) 🌐
+                        option(value="en") English
+                        option(value="es") Español
+                        option(value="fr") Français
+                        option(value="de") Deutsch
+                        option(value="it") Italiano
+                        option(value="ja") 日本語
+                        option(value="zh-CN") 中文
         main(class="pt-16")
             block content
+        div(id="google_translate_element" class="hidden")
         footer(class="mt-20 border-t border-zinc-800 py-10 text-center text-sm text-zinc-500")
-            div(id="google_translate_element" class="mb-4")
             p(class="text-zinc-300 font-semibold font-display") Marcos Stefani Rosa
             p(class="mt-1")
                 span Porto, Portugal · {current_year}
         | <script type="text/javascript">
         | function googleTranslateElementInit() {
         |   new google.translate.TranslateElement(
-        |     { pageLanguage: 'pt', layout: google.translate.TranslateElement.InlineLayout.SIMPLE },
+        |     { pageLanguage: 'pt' },
         |     'google_translate_element'
         |   );
         | }
+        | document.getElementById('lang-select').addEventListener('change', function() {
+        |   var lang = this.value;
+        |   if (!lang) return;
+        |   var select = document.querySelector('.goog-te-combo');
+        |   if (select) {
+        |     select.value = lang;
+        |     select.dispatchEvent(new Event('change'));
+        |   }
+        |   this.value = '';
+        | });
         | </script>
         | <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
