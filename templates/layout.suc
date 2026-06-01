@@ -1,9 +1,12 @@
-html(lang="pt")
+html(lang="pt-BR")
     head
         meta(charset="UTF-8")
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
         block seo
         title {page_title} — Marcos Stefani Rosa
+        link(rel="icon" type="image/x-icon" href="/static/images/favicon.ico")
+        link(rel="icon" type="image/png" sizes="32x32" href="/static/images/favicon.ico")
+        link(rel="apple-touch-icon" sizes="180x180" href="/static/images/apple-touch-icon.png")
         | <script src="https://cdn.tailwindcss.com"></script>
         link(rel="preconnect" href="https://fonts.googleapis.com")
         link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
@@ -22,6 +25,16 @@ html(lang="pt")
         main(class="pt-16")
             block content
         footer(class="mt-20 border-t border-zinc-800 py-10 text-center text-sm text-zinc-500")
+            div(id="google_translate_element" class="mb-4")
             p(class="text-zinc-300 font-semibold font-display") Marcos Stefani Rosa
             p(class="mt-1")
                 span Porto, Portugal · {current_year}
+        | <script type="text/javascript">
+        | function googleTranslateElementInit() {
+        |   new google.translate.TranslateElement(
+        |     { pageLanguage: 'pt', layout: google.translate.TranslateElement.InlineLayout.SIMPLE },
+        |     'google_translate_element'
+        |   );
+        | }
+        | </script>
+        | <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
