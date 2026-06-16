@@ -1,4 +1,4 @@
-FROM marcosstefani/sucuri:1.0.25
+FROM marcosstefani/sucuri:1.0.27
 
 COPY . .
 
