@@ -48,7 +48,7 @@ block content
                     h3(class="text-xl font-bold text-zinc-100 font-display mb-4") Compositor
                     p(class="text-zinc-400 leading-relaxed") A música também nasce das minhas mãos. Composições originais — da melodia à partitura — partilhadas no MuseScore.
                     div(class="mt-6")
-                        a(href="https://musescore.com/user/12984861" target="_blank" rel="noopener" class="inline-block px-5 py-2.5 bg-violet-600 text-white text-sm font-semibold rounded-xl hover:bg-violet-500 transition-colors") Ver partituras no MuseScore
+                        a(href="https://musescore.com/user/12984861/sets/12559717" target="_blank" rel="noopener" class="inline-block px-5 py-2.5 bg-violet-600 text-white text-sm font-semibold rounded-xl hover:bg-violet-500 transition-colors") Ver partituras no MuseScore
     section(id="poesia" class="bg-zinc-900/30 py-24 border-t border-zinc-800/50")
         div(class="max-w-5xl mx-auto px-6")
             div(class="flex items-center gap-3 mb-10")
