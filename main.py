@@ -1,6 +1,7 @@
 import os
 import time
 import json
+from threading import Lock
 from datetime import datetime
 from urllib import error, request
 
@@ -37,6 +38,25 @@ _STAR_CACHE = {
     "expires_at": 0,
     "data": STAR_FALLBACKS.copy(),
 }
+
+_RENDER_WINDOW_SECONDS = 60
+_RENDER_MAX_REQUESTS = 30
+_RENDER_MAX_CODE_LENGTH = 20_000
+_RENDER_MAX_CONTEXT_LENGTH = 10_000
+_RENDER_REQUESTS = []
+_RENDER_REQUESTS_LOCK = Lock()
+
+
+def _render_rate_limited():
+    now = time.time()
+    cutoff = now - _RENDER_WINDOW_SECONDS
+    with _RENDER_REQUESTS_LOCK:
+        while _RENDER_REQUESTS and _RENDER_REQUESTS[0] <= cutoff:
+            _RENDER_REQUESTS.pop(0)
+        if len(_RENDER_REQUESTS) >= _RENDER_MAX_REQUESTS:
+            return True
+        _RENDER_REQUESTS.append(now)
+    return False
 
 
 def _fetch_stars(repo):
@@ -96,10 +116,21 @@ def sqla_lite_page():
 
 @app.post("/api/render")
 def api_render(request):
-    code = request.json.get("code", "")
-    raw_ctx = request.json.get("context", {})
+    if _render_rate_limited():
+        return {"error": "Too many render requests. Try again shortly."}
+
+    payload = request.json
+    if not isinstance(payload, dict):
+        return {"error": "Invalid JSON payload."}
+
+    code = payload.get("code", "")
+    raw_ctx = payload.get("context", {})
+    if not isinstance(code, str) or len(code) > _RENDER_MAX_CODE_LENGTH:
+        return {"error": "Code is invalid or too long."}
     if not isinstance(raw_ctx, dict):
-        raw_ctx = {}
+        return {"error": "Context must be a JSON object."}
+    if len(json.dumps(raw_ctx)) > _RENDER_MAX_CONTEXT_LENGTH:
+        return {"error": "Context is too large."}
     try:
         ast = parse_sucuri(code)
         compiler = SucuriCompiler(raw_ctx, base_dir=TEMPLATES_DIR)
