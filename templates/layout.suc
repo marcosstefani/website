@@ -7,7 +7,7 @@ html(lang="pt-BR")
         link(rel="icon" type="image/x-icon" href="/static/images/favicon.ico")
         link(rel="icon" type="image/png" sizes="32x32" href="/static/images/favicon.ico")
         link(rel="apple-touch-icon" sizes="180x180" href="/static/images/apple-touch-icon.png")
-        | <script src="https://cdn.tailwindcss.com"></script>
+        | <script src="https://cdn.tailwindcss.com" defer></script>
         link(rel="preconnect" href="https://fonts.googleapis.com")
         link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
         link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;600;700;800&display=swap")
@@ -15,8 +15,8 @@ html(lang="pt-BR")
     body(class="bg-zinc-950 text-zinc-100")
         include components/dev_menu
         nav(class="fixed top-0 left-0 right-0 z-50 bg-zinc-950/90 backdrop-blur-sm border-b border-zinc-800")
-            div(class="max-w-5xl mx-auto px-6 flex items-center justify-end h-16")
-                div(class="flex gap-6 text-sm font-medium text-zinc-400 items-center")
+            div(class="max-w-5xl mx-auto px-6 min-h-16 py-3 flex items-center justify-end")
+                div(class="flex flex-wrap justify-end items-center gap-x-6 gap-y-2 text-sm font-medium text-zinc-400")
                     a(href="/" class="hover:text-white transition-colors") Home
                     +dev_menu
                     a(href="/#musica" class="hover:text-white transition-colors") Música
