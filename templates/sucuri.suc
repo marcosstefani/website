@@ -33,7 +33,6 @@ block content
                         span(class="text-zinc-300 text-sm") Herança de templates (extends/block)
                 div(class="mt-10 flex flex-wrap gap-4")
                     a(href="https://github.com/marcosstefani/sucuri" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-6 py-3 bg-zinc-100 text-zinc-900 text-sm font-bold rounded-xl hover:bg-white transition-colors") ↗ GitHub
-                    a(href="https://www.udemy.com/share/10fkw93@Gp_YeTgMCT2U3kuuyaoh41wMstw9S7gA-VEoj0nmI1wOJkdkYlET0uA-Do7GVFkA/" target="_blank" rel="noopener" class="px-5 py-2.5 bg-violet-600 text-white text-sm font-semibold rounded-xl hover:bg-violet-500 transition-colors") ▶ Curso Udemy
             div(class="hidden lg:flex flex-col gap-4 flex-shrink-0 w-80")
                 +install_card(install_command="pip install sucuri")
                 div(class="bg-zinc-900 border border-zinc-800 rounded-2xl p-5")
