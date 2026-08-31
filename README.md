@@ -8,7 +8,7 @@ Site pessoal de Marcos Stefani Rosa, reescrito com [Sucuri](https://github.com/m
 |---|---|
 | Template engine | [Sucuri](https://github.com/marcosstefani/sucuri) |
 | Servidor | `SucuriApp` (embutido no Sucuri) |
-| Estilos | Tailwind CSS (CDN) + CSS customizado |
+| Estilos | Tailwind CSS (build estático via CLI) + CSS customizado |
 | Container | Docker (`FROM marcosstefani/sucuri`) |
 
 ## Estrutura
@@ -32,11 +32,16 @@ website/
 ## Rodando localmente
 
 ```bash
+npm install
+npm run build:css   # gera templates/static/style/tailwind.css
+
 pip install sucuri
 sucuri serve main.py
 # ou
 python main.py
 ```
+
+Durante o desenvolvimento, use `npm run watch:css` para recompilar o CSS a cada alteração nos templates.
 
 Acesse em `http://localhost:8080`.
 
