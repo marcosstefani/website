@@ -7,10 +7,10 @@ html(lang="pt-BR")
         link(rel="icon" type="image/x-icon" href="/static/images/favicon.ico")
         link(rel="icon" type="image/png" sizes="32x32" href="/static/images/favicon.ico")
         link(rel="apple-touch-icon" sizes="180x180" href="/static/images/apple-touch-icon.png")
-        | <script src="https://cdn.tailwindcss.com" defer></script>
         link(rel="preconnect" href="https://fonts.googleapis.com")
         link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
         link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;600;700;800&display=swap")
+        link(rel="stylesheet" href="/static/style/tailwind.css")
         link(rel="stylesheet" href="/static/style/main.css")
     body(class="bg-zinc-950 text-zinc-100")
         include components/dev_menu

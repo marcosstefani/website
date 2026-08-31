@@ -1,0 +1,11 @@
+{
+  "name": "website",
+  "private": true,
+  "scripts": {
+    "build:css": "tailwindcss -i ./templates/static/style/tailwind.input.css -o ./templates/static/style/tailwind.css --minify",
+    "watch:css": "tailwindcss -i ./templates/static/style/tailwind.input.css -o ./templates/static/style/tailwind.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.13"
+  }
+}
